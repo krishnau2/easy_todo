@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  username: pguser
+  password: pguser
+  database: easy_todo_development
+  host: localhost
+
+test:
+  adapter: postgresql
+  username: pguser
+  password: pguser
+  database: easy_todo_test
+  host: localhost
+
+staging:
+  adapter: postgresql
+  database: easy_todo_staging
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: easy_todo_development
+  host: localhost
