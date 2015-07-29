@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
 
   def index
-    @tasks = Task.all.in_order.map{|t| {text: t.text, state: t.state}}
+    @tasks = Task.all_to_json
     respond_to do |format|
       format.html
       format.json {render json: @tasks}
@@ -10,7 +10,14 @@ class TodosController < ApplicationController
 
   def create
     Task.create(task_params)
-    render nothing: true
+    @tasks = Task.all_to_json
+    render json: @tasks
+  end
+
+  def destroy
+    Task.find(params[:id]).delete
+    @tasks = Task.all_to_json
+    render json: @tasks
   end
 
   private
